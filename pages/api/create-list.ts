@@ -22,7 +22,7 @@ export default async function handler(
       data: {
         title,
         description,
-        ownerId: parseInt(session?.user?.id),
+        ownerId: parseInt(session.user.id),
         icon,
         slug,
       },

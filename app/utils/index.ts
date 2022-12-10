@@ -41,7 +41,7 @@ export function getTasksTotal(tasks: ITask[], isDone: boolean) {
 }
 
 export const getTasksNumber = (tasks: ITask[], isDone?: boolean) => {
-  const tasksNumber = [];
+  const tasksNumber: number[] = [];
   // get an array of the number of tasks for each day in the  last 7 days
   for (let i = 6; i >= 0; i--) {
     let count = 0;

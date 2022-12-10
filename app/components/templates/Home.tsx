@@ -1,12 +1,12 @@
-import DashboardLayout from "../layouts/DashboardLayout";
 import { ListProvider } from "@/app/stores/listContext";
+import { Divider, Grid, Paper } from "@mui/material";
+import DashboardLayout from "../layouts/DashboardLayout";
 import List from "../modules/TasksPanel";
-import { Divider, Box, Paper, Grid } from "@mui/material";
 
 import { DrawerProvider } from "../../stores/drawerContext";
-import ProgressChart from "../modules/ProgressChart";
+import DoneTasksCard from "../modules/DoneTasksCard";
 import KarmaLevelCard from "../modules/KarmaLevelCard";
-import DoneTasksCard from "../modules/doneTasksCard";
+import ProgressChart from "../modules/ProgressChart";
 
 export default function Home({ tasks }) {
   return (

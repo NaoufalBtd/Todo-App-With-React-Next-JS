@@ -1,6 +1,5 @@
 import axios from "axios";
-import NextAuth, { Session } from "next-auth";
-import { JWT } from "next-auth/jwt";
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export default NextAuth({
@@ -51,7 +50,7 @@ export default NextAuth({
       return token;
     },
     async session({ token, session }) {
-      if (session.user) {
+      if (session?.user) {
         session.user.id = token.id;
         session.user.name = token.name;
       }
@@ -65,16 +64,5 @@ interface IUser {
     id: number;
     email: string;
     password: string;
-  };
-}
-
-interface IJWT extends JWT {
-  id?: number;
-}
-interface ISession extends Session {
-  user: {
-    name?: string;
-    email: string;
-    id?: number;
   };
 }

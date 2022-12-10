@@ -29,7 +29,7 @@ export default function Bar() {
     <AppBar
       position="fixed"
       open={open}
-      drawerWidth={drawerWidth}
+      drawerWidth={drawerWidth || "100%"}
       sx={{
         top: "auto",
         bottom: 0,

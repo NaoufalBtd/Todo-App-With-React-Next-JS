@@ -26,6 +26,6 @@ export default async function handler(
     handleResponse(res, modifiedList);
   } catch (error) {
     console.log(error);
-    handleError(res, "Internal Error: Failed to change list name");
+    handleError(res, {msg:"Internal Error: Failed to change list name"});
   }
 }

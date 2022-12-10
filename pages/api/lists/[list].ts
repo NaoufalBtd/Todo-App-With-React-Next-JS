@@ -13,9 +13,10 @@ export default async function handler(
   }
   const { list } = req.query;
   const { ownerId } = req.body;
-  const slug = typeof list === "string" ? list : list[0];
 
   try {
+    if (!list) throw new Error("List is not defined");
+    const slug = typeof list === "string" ? list : list[0];
     const data = await prisma.user.findUnique({
       where: {
         id: ownerId,

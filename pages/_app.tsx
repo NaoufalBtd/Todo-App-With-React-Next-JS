@@ -1,12 +1,15 @@
-import "../styles/globals.css";
 import { NextPageContext } from "next";
-import { getSession } from "next-auth/react";
+import { getSession, SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
-import { SessionProvider } from "next-auth/react";
+import "../styles/globals.css";
 
-import { createTheme, ThemeProvider, ThemeOptions } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Session } from "next-auth";
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps<{ session: Session | null | undefined }>) {
   const theme = createTheme({
     typography: {
       body1: {
