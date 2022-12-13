@@ -1,7 +1,7 @@
-import { useSession, signOut } from "next-auth/react";
-import { useState, MouseEvent } from "react";
+import { signOut, useSession } from "next-auth/react";
+import { MouseEvent, useState } from "react";
 
-import { Avatar, Typography, Button, Menu, MenuItem } from "@mui/material";
+import { Avatar, Button, Menu, MenuItem, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 import { stringAvatar } from "@/app/utils";
@@ -56,7 +56,7 @@ export default function UserArea() {
           My account
         </MenuItem>
         <MenuItem
-          onClick={() => signOut({ callbackUrl: "http://localhost:3000/" })}>
+          onClick={() => signOut({ callbackUrl: process.env.SITE_URL })}>
           Logout
         </MenuItem>
       </Menu>

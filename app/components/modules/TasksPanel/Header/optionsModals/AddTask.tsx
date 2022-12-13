@@ -26,7 +26,7 @@ export default function AddTasksModal({
   const [isEmptyInput, setIsEmptyInput] = useState(false);
   const [selectedList, setSelectedList] = useState("");
   const { data, error } = useSWR(
-    "http://localhost:3000/api/get-lists",
+    `${process.env.SITE_URL}api/get-lists`,
     fetcher
   );
   let task = "";

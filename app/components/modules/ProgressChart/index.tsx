@@ -32,7 +32,10 @@ export default function ProgressChart({ style }: IProps) {
       tasks: ITask[];
     };
   }>(
-    `http://localhost:3000/api/get-tasks?fromDate=${moment().subtract(7, "d")}`,
+    `${process.env.SITE_URL}api/get-tasks?fromDate=${moment().subtract(
+      7,
+      "d"
+    )}`,
     fetcher
   );
 

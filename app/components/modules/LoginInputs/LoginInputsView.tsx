@@ -34,7 +34,7 @@ export function LoginInputsView({ handleSubmit }: ILogin) {
         id="password"
         autoComplete="current-password"
       />
-      //todo: Implement the possibility of remembering the user
+
       <FormControlLabel
         control={<Checkbox value="remember" color="primary" />}
         label="Remember me"

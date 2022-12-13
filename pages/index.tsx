@@ -31,7 +31,7 @@ export async function getServerSideProps({ req }: { req: any }) {
     const session = await getSession({ req });
     let tasks;
     if (session?.user) {
-      const res = await axios.post(`http://localhost:3000/api/lists/home`, {
+      const res = await axios.post(`${process.env.SITE_URL}api/lists/home`, {
         ownerId: session.user.id,
       });
       tasks = JSON.stringify(res.data.payload);

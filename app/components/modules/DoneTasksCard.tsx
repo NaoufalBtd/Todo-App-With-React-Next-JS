@@ -10,7 +10,7 @@ export default function DoneTasksCard({ tasks }: { tasks: any }) {
       doneTasksNumber: number;
       tasksNumber: number;
     };
-  }>(`http://localhost:3000/api/get-tasks-number`, fetcher);
+  }>(`${process.env.SITE_URL}api/get-tasks-number`, fetcher);
   if (error || !data) return <Skeleton />;
 
   const { doneTasksNumber, tasksNumber } = data?.payload || {

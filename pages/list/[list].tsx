@@ -1,10 +1,6 @@
+import ListTemplate from "@/app/components/templates/List";
 import axios from "axios";
 import { getSession } from "next-auth/react";
-import ListTemplate from "@/app/components/templates/List";
-
-import { ListProvider } from "@/app/stores/listContext";
-
-import type { ITask } from "@/app/stores/listContext";
 
 export default function List({ list }: any) {
   list = JSON.parse(list);
@@ -26,7 +22,7 @@ export async function getServerSideProps({ query, req }: any) {
       throw new Error("Invalid Session");
     }
     const res = await axios.post(
-      `http://localhost:3000/api/lists/${query.list}`,
+      `${process.env.SITE_URL}api/lists/${query.list}`,
       { ownerId: session.user.id }
     );
     return { props: { list: JSON.stringify(res.data.payload.lists[0]) } };
