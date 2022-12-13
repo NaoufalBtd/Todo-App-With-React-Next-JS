@@ -36,9 +36,15 @@ function MyApp({
 
 export default MyApp;
 export async function getInitialProp(ctx: NextPageContext) {
-  return {
-    props: {
-      session: await getSession(ctx),
-    },
-  };
+  try {
+    const session = await getSession(ctx);
+    return {
+      props: {
+        session,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    throw new Error("error in getInitialProp");
+  }
 }
