@@ -2,7 +2,13 @@ import type { IList } from "@/app/stores/drawerContext";
 import Image from "next/image";
 import Link from "next/link";
 
-import { List, ListItem, ListItemText, Typography } from "@mui/material";
+import {
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 
 import AddIcon from "@mui/icons-material/Add";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -28,20 +34,20 @@ export default function ListsNavView({
         </ListItem>
         {lists?.map((el, index) => (
           <Link href={`/list/${el.slug}`} key={index} passHref>
-            <ListItem button>
+            <ListItemButton>
               <Image src={`/${el.icon}-icon.png`} width={23} height={23} />
               <ListItemText sx={{ ml: 2 }} primary={el.title} />
-            </ListItem>
+            </ListItemButton>
           </Link>
         ))}
-        <ListItem button onClick={handleOpen}>
+        <ListItemButton onClick={handleOpen}>
           <ListItemIcon>
             <AddIcon sx={{ color: grey[500] }} />
           </ListItemIcon>
           <ListItemText
             primary="Add List"
             sx={{ color: grey[500] }}></ListItemText>
-        </ListItem>
+        </ListItemButton>
       </List>
 
       <AddListModal

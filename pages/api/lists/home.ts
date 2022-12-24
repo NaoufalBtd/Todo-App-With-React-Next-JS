@@ -12,7 +12,6 @@ export default async function handler(
     return;
   }
   const { ownerId } = req.body;
-
   try {
     const data = await prisma.user.findUnique({
       where: {

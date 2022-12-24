@@ -38,7 +38,7 @@ export default async function handler(
       handleError(res, { msg: "User not found" }, 404);
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
     handleError(res, {
       msg: "Internal Error - This Error happens in login endpoint",
       data: error,

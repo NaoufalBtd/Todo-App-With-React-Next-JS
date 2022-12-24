@@ -20,7 +20,7 @@ export default async function handler(
     });
     handleResponse(res, { deleted: true });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     handleError(res, { msg: "Internal Error", data: error });
   }
 }

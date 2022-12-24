@@ -17,7 +17,7 @@ export default NextAuth({
       },
       async authorize(credentials) {
         const res = await axios.post<IUser>(
-          `${process.env.SITE_URL}api/login`,
+          `api/login`,
           {
             email: credentials?.email,
             password: credentials?.password,

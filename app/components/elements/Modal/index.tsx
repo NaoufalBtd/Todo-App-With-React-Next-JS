@@ -1,6 +1,4 @@
-import axios from "axios";
-
-import { Modal, Box, Typography } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
 import { ReactNode } from "react";
 
 const style = {
@@ -8,7 +6,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: { lg: 580, md: 400, sm: 300 },
+  width: { lg: 580, md: 400, sm: 300, xs: 200 },
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,

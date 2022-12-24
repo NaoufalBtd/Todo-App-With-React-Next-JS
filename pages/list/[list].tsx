@@ -4,7 +4,6 @@ import { getSession } from "next-auth/react";
 
 export default function List({ list }: any) {
   list = JSON.parse(list);
-
   return (
     <ListTemplate
       listTitle={list.title}
@@ -23,11 +22,14 @@ export async function getServerSideProps({ query, req }: any) {
     }
     const res = await axios.post(
       `${process.env.SITE_URL}api/lists/${query.list}`,
-      { ownerId: session.user.id }
+      {
+        ownerId: session.user.id,
+      }
     );
+
     return { props: { list: JSON.stringify(res.data.payload.lists[0]) } };
   } catch (error) {
-    console.log(error);
-    return { props: { list: [] } };
+    console.error(error);
+    return { props: { list: "[]" } };
   }
 }

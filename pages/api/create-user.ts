@@ -27,7 +27,7 @@ export default async function handler(
     });
     handleResponse(res, { id: newUser.id, fullName: newUser.fullName });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     handleError(res, { data: error, msg: "Internal Error" });
   }
 }

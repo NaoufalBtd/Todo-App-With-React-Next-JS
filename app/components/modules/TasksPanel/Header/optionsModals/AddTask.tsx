@@ -25,10 +25,7 @@ export default function AddTasksModal({
   const { listId, setTasks, title } = useListContext();
   const [isEmptyInput, setIsEmptyInput] = useState(false);
   const [selectedList, setSelectedList] = useState("");
-  const { data, error } = useSWR(
-    `${process.env.SITE_URL}api/get-lists`,
-    fetcher
-  );
+  const { data, error } = useSWR(`api/get-lists`, fetcher);
   let task = "";
   let dueDate = moment().format("YYYY-MM-DD");
 
@@ -60,7 +57,7 @@ export default function AddTasksModal({
         });
       handleClose();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   const closeModal = () => {

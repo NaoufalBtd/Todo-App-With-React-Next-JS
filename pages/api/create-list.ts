@@ -29,7 +29,7 @@ export default async function handler(
     });
     handleResponse(res, newList);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     handleError(res, { data: error, msg: "Internal Error" });
   }
 }

@@ -16,6 +16,7 @@ export default async function handler(
       select: {
         id: true,
         title: true,
+        icon: true,
       },
     });
     handleResponse(res, { lists });

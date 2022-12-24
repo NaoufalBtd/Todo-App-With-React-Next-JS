@@ -29,6 +29,7 @@ export default function AddListModal({
   const handleSave = async () => {
     if (!selectedIcon) return setAlertOpen(true);
     setAreCatsLoading(true);
+
     const response = await axios.post<{ payload: IList; isError: boolean }>(
       "/api/create-list",
       {

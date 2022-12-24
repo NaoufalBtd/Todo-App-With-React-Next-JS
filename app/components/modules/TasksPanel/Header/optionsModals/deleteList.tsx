@@ -20,7 +20,7 @@ export default function DeleteListModal({ open, handleClose }: IProps) {
       handleClose();
       router.push("/home");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
   return (

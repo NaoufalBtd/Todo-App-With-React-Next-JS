@@ -31,13 +31,7 @@ export default function ProgressChart({ style }: IProps) {
     payload: {
       tasks: ITask[];
     };
-  }>(
-    `${process.env.SITE_URL}api/get-tasks?fromDate=${moment().subtract(
-      7,
-      "d"
-    )}`,
-    fetcher
-  );
+  }>(`api/get-tasks?fromDate=${moment().subtract(7, "d")}`, fetcher);
 
   if (error) return <p>We Cannot Fetch Data</p>;
   if (!data) return <Skelton />;

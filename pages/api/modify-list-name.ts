@@ -1,7 +1,6 @@
+import { handleError, handleResponse } from "@/app/utils/api";
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../lib/prisma";
-import { handleResponse } from "@/app/utils/api";
-import { handleError } from "@/app/utils/api";
 
 export default async function handler(
   req: NextApiRequest,
@@ -25,7 +24,7 @@ export default async function handler(
     });
     handleResponse(res, modifiedList);
   } catch (error) {
-    console.log(error);
-    handleError(res, {msg:"Internal Error: Failed to change list name"});
+    console.error(error);
+    handleError(res, { msg: "Internal Error: Failed to change list name" });
   }
 }
