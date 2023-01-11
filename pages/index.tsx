@@ -8,7 +8,7 @@ import LoginTemplate from "@/app/components/templates/Login";
 import Head from "next/head";
 
 const Home: NextPage = ({ tasks }: any) => {
-  tasks = JSON.parse(tasks);
+  tasks = [];
   const { data: session, status } = useSession();
   if (status === "loading") return <LoadingTemplate />;
   if (!session) return <LoginTemplate />;

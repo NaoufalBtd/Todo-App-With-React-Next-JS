@@ -45,6 +45,10 @@ export async function getInitialProp(ctx: NextPageContext) {
     };
   } catch (error) {
     console.error(error);
-    throw new Error("error in getInitialProp");
+    return {
+      props: {
+        session: null,
+      },
+    };
   }
 }
