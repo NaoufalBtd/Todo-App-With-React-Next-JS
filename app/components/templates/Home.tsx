@@ -22,7 +22,7 @@ export default function Home({ tasks }) {
       <DrawerProvider>
         <DashboardLayout>
           <>
-            <Typography sx={{ fontSize: "1.3rem", p: 1, pt: 3 }}>
+            <Typography sx={{ fontSize: "1.3rem", p: 2, pt: 3 }}>
               {getWelcomeMessage(userName)}
             </Typography>
             <TasksPanel showOptions={false} showTaskLabel={true} />
