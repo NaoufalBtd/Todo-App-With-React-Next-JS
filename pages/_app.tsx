@@ -14,7 +14,9 @@ function MyApp({
     typography: {
       body1: {
         color: "#ffff",
+        fontFamily: "Josefin Sans",
       },
+      fontFamily: "Sofia Sans",
     },
     palette: {
       mode: "dark",

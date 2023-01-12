@@ -1,14 +1,18 @@
 import { ListProvider } from "@/app/stores/listContext";
-import { Divider, Grid, Paper } from "@mui/material";
+import { Divider, Grid, Paper, Typography } from "@mui/material";
 import DashboardLayout from "../layouts/DashboardLayout";
-import List from "../modules/TasksPanel";
+import TasksPanel from "../modules/TasksPanel";
 
+import { getWelcomeMessage } from "@/app/utils";
+import { useSession } from "next-auth/react";
 import { DrawerProvider } from "../../stores/drawerContext";
 import DoneTasksCard from "../modules/DoneTasksCard";
 import KarmaLevelCard from "../modules/KarmaLevelCard";
 import ProgressChart from "../modules/ProgressChart";
 
 export default function Home({ tasks }) {
+  const { data: session } = useSession();
+  const userName = session?.user?.name || "";
   return (
     <ListProvider
       listTitle={"Overview"}
@@ -18,7 +22,10 @@ export default function Home({ tasks }) {
       <DrawerProvider>
         <DashboardLayout>
           <>
-            <List showOptions={false} showTaskLabel={true} />
+            <Typography sx={{ fontSize: "1.3rem", p: 1, pt: 3 }}>
+              {getWelcomeMessage(userName)}
+            </Typography>
+            <TasksPanel showOptions={false} showTaskLabel={true} />
             <Grid container sx={{ p: 4 }} spacing={3}>
               <Grid item sm={7} xs={12}>
                 <Paper

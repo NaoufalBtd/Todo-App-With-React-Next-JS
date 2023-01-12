@@ -166,6 +166,19 @@ export const getLastSevenDaysName = () => {
   return myArray.reverse();
 };
 
+export const getWelcomeMessage = (userName: string): string => {
+  const hour = new Date().getHours();
+  if (hour < 11) {
+    return `Good Morning, ${userName}`;
+  } else if (hour < 16) {
+    return `Good Afternoon, ${userName}`;
+  } else if (hour <= 23) {
+    return `Good Evening, ${userName}`;
+  } else {
+    return `Welcome Back, ${userName}`;
+  }
+};
+
 interface IResult {
   dayName: string;
   tasks: ITask[];

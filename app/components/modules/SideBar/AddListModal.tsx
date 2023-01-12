@@ -83,7 +83,12 @@ export default function AddListModal({
       />
       <br />
       <Typography>Choose Icon: </Typography>
-      <Paper sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Paper
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}>
         {listIcons.map((icon) => (
           <IconSelection
             key={icon.label}

@@ -1,10 +1,9 @@
-import { Paper, Divider } from "@mui/material";
+import { Divider, Paper } from "@mui/material";
 import ListHeader from "./Header";
 import TasksList from "./TasksList";
 
-import { makeStyles } from "@mui/styles";
 import { styled } from "@mui/material/styles";
-import { grey } from "@mui/material/colors";
+import { makeStyles } from "@mui/styles";
 
 import { useDrawerContext } from "@/app/stores/drawerContext";
 
@@ -32,7 +31,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function List({ showOptions }: IProps) {
+export default function TaskPanel({ showOptions }: IProps) {
   const classes = useStyles();
   const { open, drawerWidth } = useDrawerContext();
   return (
@@ -61,5 +60,5 @@ interface IProps {
 
 interface IMain {
   open?: boolean;
-  drawerWidth?: number | "100%";
+  drawerWidth?: number | "75%";
 }

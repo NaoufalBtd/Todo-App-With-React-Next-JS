@@ -11,7 +11,7 @@ import {
 import { ITask } from "@/app/stores/listContext";
 import { getLastSevenDaysName, getTasksNumber } from "@/app/utils";
 import { fetcher } from "@/app/utils/api";
-import type { SxProps } from "@mui/material";
+import { SxProps, Typography } from "@mui/material";
 import moment from "moment";
 import { Bar } from "react-chartjs-2";
 import useSWR from "swr";
@@ -33,7 +33,8 @@ export default function ProgressChart({ style }: IProps) {
     };
   }>(`api/get-tasks?fromDate=${moment().subtract(7, "d")}`, fetcher);
 
-  if (error) return <p>We Cannot Fetch Data</p>;
+  if (error)
+    return <Typography>Error Happening during fetching data</Typography>;
   if (!data) return <Skelton />;
 
   const { tasks } = data.payload;

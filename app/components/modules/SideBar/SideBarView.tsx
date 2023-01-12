@@ -23,12 +23,11 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 1),
   display: "flex",
   alignItems: "center",
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-  justifyContent: "space-around",
-  // [theme.breakpoints.up("md")]: {
-  //   display: "none",
-  // },
+  justifyContent: "center",
+  [theme.breakpoints.down("md")]: {
+    justifyContent: "space-between",
+  },
 }));
 
 export default function SideBarView() {

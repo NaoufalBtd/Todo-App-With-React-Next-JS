@@ -29,7 +29,7 @@ export default function Bar() {
     <AppBar
       position="fixed"
       open={open}
-      drawerWidth={drawerWidth || "100%"}
+      drawerWidth={drawerWidth || "75%"}
       sx={{
         top: "auto",
         bottom: 0,
@@ -51,7 +51,7 @@ export default function Bar() {
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
-  drawerWidth: number | "100%";
+  drawerWidth: number | "75%";
 }
 
 interface IProps {
